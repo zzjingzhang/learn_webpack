@@ -30,13 +30,12 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
                 use: {
-                    loader: 'url-loader',  // 可以将图片转为base64
+                    loader: 'file-loader',
                     options: {
                         // outputPath: 'img', //配置图片打包输出路径
                         // name: "[name].png"  // 输出文件名  保留原文件名  不加这个配置，打包的文件名是用hash表示的
                         // name: "[name]_[hash:6].[ext]" // 输 出文件名，原文件名拼接hash 6表示hash值的6位 [ext]使用原文件的扩展名
-                        name: "img/[name]_[hash:6].[ext]", // 如果不想用outputPath，可以直接在name前面拼接
-                        limit: 100 * 1024 // 单位是byte   100 * 1024小于100kb的图片才转换为base64编码
+                        name: "img/[name]_[hash:6].[ext]"  // 如果不想用outputPath，可以直接在name前面拼接
                     }
                 }
             }
